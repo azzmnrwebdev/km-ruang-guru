@@ -1,0 +1,23 @@
+{
+  "name": "rg-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": "https://github.com/azzmnrwebdev/km-ruang-guru",
+  "scripts": {
+    "postinstall": "playwright install firefox",
+    "test": "jest",
+    "test:cypress": "cypress run",
+    "test:playwright": "playwright test",
+    "fix:playwright": "playwright install chromium && rm playwright.config.js && cp playwright.config.chromium.js playwright.config.js",
+    "fix:playwright-windows": "playwright install chromium && del playwright.config.js && copy playwright.config.chromium.js playwright.config.js"
+  },
+  "keywords": [],
+  "author": "Muhammad Azzam Nur Alwi Mansyur",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.21.0",
+    "jest": "^27.5.1",
+    "prompt-sync": "^4.2.0"
+  }
+}
