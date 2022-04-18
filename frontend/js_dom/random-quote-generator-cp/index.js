@@ -1,6 +1,4 @@
-/*
-Uncomment variable dibawah ini untuk mulai mengerjakan. dilarang mengganti nama variable yang dibuat.
-*/
+// Uncomment variable dibawah ini untuk mulai mengerjakan. dilarang mengganti nama variable yang dibuat.
 
 // let quote = element untuk menampilkan quote
 // let author = element untuk menampilkan author
@@ -191,11 +189,39 @@ var quotes = [
 ];
 
 // TODO: answer here
+let quote = document.getElementById("random-quote");
+let author = document.getElementsByClassName("author");
+let citation = document.getElementsByClassName("citation");
+let year = document.getElementsByClassName("year");
+let button = document.getElementsByTagName("button");
+
+button[0].addEventListener("click", () => {
+  const n = getQuote();
+  displayQuote(n);
+});
 
 function getQuote() {
   // TODO: answer here
+  const index = Math.floor(Math.random() * (quotes.length - 1));
+  return index;
 }
 
-function displayQuote() {
+function displayQuote(n) {
   // TODO: answer here
+  const currQuote = quotes[n];
+  quote.innerText = currQuote.quote;
+  author[0].innerText = currQuote.author;
+
+  if (currQuote.hasOwnProperty("citation")) {
+    citation[0].innerText = currQuote.citation;
+  } else {
+    citation[0].innerText = "";
+  }
+
+  if (currQuote.hasOwnProperty("year")) {
+    year[0].innerText = currQuote.year;
+  } else {
+    year[0].innerText = "";
+  }
+  console.log(currQuote);
 }
