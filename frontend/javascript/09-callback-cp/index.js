@@ -4,16 +4,22 @@
 // contoh: hehe => hheehhee
 function doubleChars(str) {
   // TODO: answer here
+  return str.split("").map(char => char.repeat(2)).join("");
 }
 
 // function ini mengulang pengaplikasian callback pada str sejumlah num
 function repeat(str, num, cb) {
   // TODO: answer here
+  let result = str
+  for (let i = 0; i < num; i++) {
+    result = cb(result);
+  }
+  return result;
 }
 
-console.log(repeat("triple", 2, doubleChars)); // ttttrrrriiiipppplllleeee
+console.log(repeat("triple", 2, doubleChars)); //  ttttrrrriiiipppplllleeee
 
 module.exports = {
   doubleChars,
-  repeat
-}
+  repeat,
+};
