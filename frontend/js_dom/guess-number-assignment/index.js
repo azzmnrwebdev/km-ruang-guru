@@ -9,19 +9,57 @@
 // let score = nilai yang akan ditampilakan
 
 // TODO: answer here
+let newGameBtn = document.getElementsByClassName("new-game")[0];
+let randomNumber = Math.floor(Math.random() * 10 + 1);
+let message = document.getElementsByClassName("message")[0];
+let displayScore = document.getElementsByClassName("score")[0];
+let input = document.getElementsByClassName("input")[0];
+let checkBtn = document.getElementsByClassName("check")[0];
+let score = 10;
+
+newGameBtn.addEventListener("click", resetGame);
+checkBtn.addEventListener("click", checkNumber);
 
 function displayMessage(msg) {
   // TODO: answer here
+  message.innerHTML = msg;
 }
 
 function resetGame() {
   // TODO: answer here
-  // dilarang menghapus code dibawah ini!
+  score = 10;
+  displayScore.innerHTML = 10;
+  input.value = "";
+  displayMessage("Lets start guessing...");
+  document.getElementsByClassName("number")[0].innerHTML = "?";
+  randomNumber = Math.floor(Math.random() * 10 + 1);
+  console.log(randomNumber);
+
+  //dilarang menghapus code dibawah ini!
   document.getElementById("hidden-number").innerHTML = randomNumber;
 }
 
 function checkNumber() {
   // TODO: answer here
+  if (input.value < 1 || input.value > 10) {
+    displayMessage("Guess any number between 1 and 10");
+  } else if (input.value == randomNumber) {
+    displayMessage("Yeay! you guessed it!");
+    document.getElementsByClassName("number")[0].innerHTML = randomNumber;
+  } else if (input.value != randomNumber) {
+    if (score > 1) {
+      if (input.value < randomNumber) {
+        displayMessage("Too small, buddy!");
+      } else if (input.value > randomNumber) {
+        displayMessage("Oww... that's too big!");
+      }
+      score--;
+      displayScore.innerHTML = score;
+    } else {
+      displayMessage("Oops, you lost the game");
+      displayScore.innerHTML = 0;
+    }
+  }
 }
 
 //dilarang menghapus code dibawah ini!
