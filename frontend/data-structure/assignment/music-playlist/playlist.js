@@ -1,16 +1,16 @@
-const Song = require('./song')
+const Song = require("./song");
 
 module.exports = class Playlist {
-    constructor(songs, repeatable) {
-        this.songs = songs
-        this.isRepeatable = repeatable
-    }
+  constructor(songs, repeatable) {
+    this.songs = songs;
+    this.isRepeatable = repeatable;
+  }
 
-    isEmpty() {
-        return this.songs.length == 0
-    }
+  isEmpty() {
+    return this.songs.length == 0;
+  }
 
-    repeat() {
-        this.isRepeatable = true
-    }
-}
+  repeat() {
+    this.isRepeatable = true;
+  }
+};
