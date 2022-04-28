@@ -1,5 +1,5 @@
 // Sort array terlebih dahulu, kemudian rotasi ke kiri sesuai dengan nilai yang telah ditentukan.
-//
+
 // Contoh Sort array:
 // Input: [4,5,2,1,3]
 // Output: [1,2,3,4,5]
@@ -13,17 +13,22 @@
 // [1,2,3,4,5] -> [2,3,4,5,1] -> [3,4,5,1,2] -> [4,5,1,2,3] -> [5,1,2,3,4]
 
 function sort(arr) {
-    return arr // TODO: replace this
+  return arr.sort(); // TODO: replace this
 }
 
 function rotateLeft(d, arr) {
-    return arr // TODO: replace this
+  while (d > 0) {
+    let temp = arr.shift();
+    arr.push(temp);
+    d--;
+  }
+  return arr; // TODO: replace this
 }
 
-let nums = [4, 5, 2, 1, 3]
-let sorted = sort(nums)
-console.log(sorted)
-rotated = rotateLeft(4, sorted)
-console.log(rotated)
+let nums = [4, 5, 2, 1, 3];
+let sorted = sort(nums);
+console.log(sorted);
+rotated = rotateLeft(4, sorted);
+console.log(rotated);
 
-module.exports = { sort, rotateLeft }
+module.exports = { sort, rotateLeft };
